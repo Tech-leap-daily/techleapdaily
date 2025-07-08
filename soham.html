@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Ultimate Silicon Valley Hustle: Soham Parekh's Viral Story</title>
+    <title>The Ultimate Silicon Valley Hustle: Soham Parekh's Viral Story - Tech Leap Daily</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,35 +12,119 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: #e5e7eb;
         }
 
-        .container {
-            max-width: 800px;
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-secondary);
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--bg-primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Article Styles */
+        .article-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--bg-primary);
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
             overflow: hidden;
         }
 
-        .header {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        .article-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 40px;
+            padding: 60px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .header::before {
+        .article-header::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -62,58 +146,87 @@
             100% { transform: translateX(50px); }
         }
 
-        .header h1 {
-            font-size: 2.5em;
+        .article-header h1 {
+            font-size: 2.8em;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 1;
         }
 
-        .header .subtitle {
-            font-size: 1.2em;
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 15px;
             opacity: 0.9;
             position: relative;
             z-index: 1;
         }
 
-        .content {
-            padding: 40px;
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        h2 {
-            color: #2c3e50;
+        .article-header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+        }
+
+        .article-content {
+            padding: 50px 40px;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            color: var(--text-primary);
             font-size: 1.8em;
             margin: 40px 0 20px 0;
             padding-bottom: 10px;
-            border-bottom: 3px solid #3498db;
+            border-bottom: 3px solid var(--primary-color);
             position: relative;
+            font-weight: 700;
         }
 
-        h2::after {
+        .article-content h2::after {
             content: '';
             position: absolute;
             bottom: -3px;
             left: 0;
             width: 50px;
             height: 3px;
-            background: #e74c3c;
+            background: var(--accent-color);
         }
 
-        p {
+        .article-content p {
             margin-bottom: 20px;
             font-size: 1.1em;
             text-align: justify;
         }
 
+        .article-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
         .highlight {
-            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 5px solid #3498db;
+            background: linear-gradient(120deg, #e0f2fe 0%, #f3e5f5 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 5px solid var(--primary-color);
             position: relative;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .highlight::before {
@@ -121,10 +234,11 @@
             position: absolute;
             top: 15px;
             left: -15px;
-            background: white;
+            background: var(--bg-primary);
             border-radius: 50%;
-            padding: 5px;
+            padding: 8px;
             font-size: 1.2em;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .stats {
@@ -135,9 +249,9 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -156,22 +270,23 @@
         }
 
         .quote {
-            background: #f8f9fa;
-            border-left: 5px solid #e74c3c;
-            padding: 20px;
-            margin: 20px 0;
+            background: var(--bg-secondary);
+            border-left: 5px solid var(--accent-color);
+            padding: 25px;
+            margin: 25px 0;
             font-style: italic;
             position: relative;
-            border-radius: 0 10px 10px 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .quote::before {
             content: '"';
             font-size: 4em;
-            color: #e74c3c;
+            color: var(--accent-color);
             position: absolute;
             top: -10px;
-            left: 10px;
+            left: 15px;
             opacity: 0.3;
         }
 
@@ -183,25 +298,31 @@
         }
 
         .pro-card, .con-card {
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .pro-card {
-            background: linear-gradient(135deg, #a8edea, #fed6e3);
-            border-left: 5px solid #27ae60;
+            background: linear-gradient(135deg, #d1fae5, #ecfdf5);
+            border-left: 5px solid #10b981;
         }
 
         .con-card {
-            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
-            border-left: 5px solid #e74c3c;
+            background: linear-gradient(135deg, #fed7d7, #fef5e7);
+            border-left: 5px solid #f59e0b;
+        }
+
+        .pro-card h3, .con-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
         }
 
         .cta {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 30px;
+            padding: 40px;
             text-align: center;
             border-radius: 15px;
             margin: 40px 0;
@@ -225,7 +346,7 @@
         }
 
         .cta h3 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
@@ -238,43 +359,203 @@
             z-index: 1;
         }
 
-        strong {
-            color: #e74c3c;
+        .article-content strong {
+            color: var(--primary-color);
             font-weight: 700;
         }
 
-        em {
-            color: #3498db;
+        .article-content em {
+            color: var(--secondary-color);
             font-style: italic;
         }
 
+        /* Back to Blog Button */
+        .back-to-blog {
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+
+        .back-to-blog:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2em;
+            .mobile-menu-toggle {
+                display: block;
             }
-            
-            .content {
-                padding: 20px;
+
+            .nav-menu {
+                display: none;
             }
-            
-            h2 {
+
+            .article-header h1 {
+                font-size: 2.2em;
+            }
+
+            .article-header .subtitle {
+                font-size: 1.1em;
+            }
+
+            .article-content {
+                padding: 30px 20px;
+            }
+
+            .article-content h2 {
                 font-size: 1.5em;
             }
-            
+
             .stats {
                 grid-template-columns: 1fr;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-rocket"></i>
+                Tech Leap Daily
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="index.html#newsletter">Newsletter</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Article Container -->
+    <div class="article-container">
+        <div class="article-header">
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> July 3, 2025</span>
+                <span><i class="fas fa-clock"></i> 8 min read</span>
+                <span><i class="fas fa-user"></i> Tech Leap Daily</span>
+            </div>
             <h1>The Ultimate Silicon Valley Hustle</h1>
             <p class="subtitle">How One Engineer Secretly Worked 4 Startups at Once and Became the Internet's Most Controversial Hero</p>
         </div>
 
-        <div class="content">
+        <div class="article-content">
+            <a href="index.html#blog" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i>
+                Back to Blog
+            </a>
+
             <h2>🚀 The Tweet That Started It All</h2>
             <p>Picture this: You're scrolling through Twitter on a regular Tuesday when suddenly, the entire tech world explodes over one name—<strong>Soham Parekh</strong>. A Mumbai-based software engineer who just pulled off what might be the most audacious employment stunt in Silicon Valley history.</p>
             
@@ -321,7 +602,7 @@
             <p>Here's where the story gets fascinating. What started as a cautionary tale about employment fraud quickly transformed into something unexpected. The internet didn't just condemn Parekh—many began to celebrate him.</p>
             
             <p><strong>Why?</strong> Because in an era of:</p>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <ul>
                 <li>Mass tech layoffs</li>
                 <li>Hustle culture toxicity</li>
                 <li>Companies demanding "rockstar" employees while offering minimal job security</li>
@@ -334,7 +615,7 @@
             <p>According to hiring managers and engineers who worked with him, Parekh wasn't just lucky—he was <strong>exceptionally skilled</strong>. One Hacker News commenter noted: <em>"He will blow the interviews completely out of the water. Easily top 1% or top 0.1% of candidates."</em></p>
             
             <p>This raises uncomfortable questions for the tech industry:</p>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <ul>
                 <li>How did multiple sophisticated hiring processes fail to detect this?</li>
                 <li>What does it say about remote work oversight?</li>
                 <li>Are companies so desperate for talent that they skip basic verification?</li>
@@ -366,7 +647,7 @@
 
             <h2>📊 The Aftermath</h2>
             <p>As the dust settles, Parekh's saga has sparked industry-wide conversations about:</p>
-            <ul style="margin-left: 20px; margin-bottom: 20px;">
+            <ul>
                 <li>Remote work policies and verification</li>
                 <li>The ethics of "overemployment"</li>
                 <li>Whether traditional employment models are outdated</li>
@@ -382,7 +663,66 @@
                 <h3>What's Your Take?</h3>
                 <p><em>Is Soham Parekh a cautionary tale about employment fraud, or a folk hero who exposed Silicon Valley's broken system? The internet is still deciding.</em></p>
             </div>
+
+            <a href="index.html#blog" class="back-to-blog">
+                <i class="fas fa-arrow-left"></i>
+                Back to Blog
+            </a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>About Tech Leap Daily</h4>
+                    <p>Your go-to source for the latest technology trends, insights, and innovations. We bring you the stories that matter in the rapidly evolving world of tech.</p>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="RSS"><i class="fas fa-rss"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#blog">Blog</a></li>
+                        <li><a href="index.html#newsletter">Newsletter</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI & Machine Learning</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                        <li><a href="#">Mobile Development</a></li>
+                        <li><a href="#">Cloud Computing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tech Leap Daily. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
